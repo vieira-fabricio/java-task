@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  postgres:
+    image: 'postgres:latest'
+    container_name: 'my_tasks'
+    environment:
+      - 'POSTGRES_DB=tasks_db'
+      - 'POSTGRES_PASSWORD=123456'
+      - 'POSTGRES_USER=taskservice'
+    ports:
+      - '5433:5432'
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
